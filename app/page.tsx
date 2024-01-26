@@ -3,11 +3,9 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence } from 'framer-motion';
 import Preloader from '@/app/components/Preloader';
-import Landing from '@/app/components/Landing';
-import Projects from '@/app/components/Projects';
-import Description from '@/app/components/Description';
-import SlidingImages from '@/app/components/SlidingImages';
-import Contact from '@/app/components/Contact';
+import HeroText from './text-anim';
+import Navbar from './navbar';
+
 
 export default function Home() {
 
@@ -33,7 +31,8 @@ export default function Home() {
       <AnimatePresence mode='wait'>
         {isLoading && <Preloader />}
       </AnimatePresence>
-      
+      <nav className=''></nav>
+      <Navbar/>
     </main>
   )
 }
