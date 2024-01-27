@@ -3,7 +3,7 @@ import { AnimatePresence } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import LoaderAbout from "./loaderabout";
 
-const about = () => {
+const About = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -28,4 +28,4 @@ const about = () => {
   );
 };
 
-export default about;
+export default About;
