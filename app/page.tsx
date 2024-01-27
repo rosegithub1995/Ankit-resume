@@ -5,7 +5,11 @@ import { AnimatePresence } from "framer-motion";
 
 import Loader from "./_component/preloader";
 import Header from "./_component/header/header";
-import Description from "./_component/description";
+import Description from "@/app/components/Description/index";
+import Landing from "@/app/components/Landing/index";
+import Projects from "@/app/components/Projects/index";
+import SlidingImages from "@/app/components/SlidingImages/index";
+import Contact from "@/app/components/Contact/index";
 
 export default function Home() {
   useEffect(() => {
@@ -68,15 +72,14 @@ export default function Home() {
       <AnimatePresence mode="wait">{isLoading && <Loader />}</AnimatePresence>
 
       <Header />
-      <Description />
-      <Description />
-      <Description />
-      <Description />
+
+      <Landing />
 
       <Description />
-      <Description />
-      <Description />
-      <Description />
+
+      <Projects />
+
+      <Contact />
     </main>
   );
 }
