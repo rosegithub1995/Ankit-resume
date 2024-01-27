@@ -3,13 +3,14 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence } from "framer-motion";
 
-import Loader from "./_component/preloader";
-import Header from "./_component/header/header";
 import Description from "@/app/components/Description/index";
 import Landing from "@/app/components/Landing/index";
 import Projects from "@/app/components/Projects/index";
 import SlidingImages from "@/app/components/SlidingImages/index";
 import Contact from "@/app/components/Contact/index";
+
+import Header from "@/app/components/Header/index";
+import Loader from "./_component/preloader";
 
 export default function Home() {
   useEffect(() => {
