@@ -1,36 +1,14 @@
-"use client";
-
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { opacity, slideUp } from "@/app/anim";
 
-const words = [
-  "नमस्कार",
-  "Hello",
-  "Engineer",
-  "Developer",
-  "Traveller",
-  "Funny",
-  "Ankit Pratap",
-];
-
-export default function Loader() {
+export default function LoaderAbout() {
   const [index, setIndex] = useState(0);
   const [dimension, setDimension] = useState({ width: 0, height: 0 });
 
   useEffect(() => {
     setDimension({ width: window.innerWidth, height: window.innerHeight });
   }, []);
-
-  useEffect(() => {
-    if (index == words.length - 1) return;
-    setTimeout(
-      () => {
-        setIndex(index + 1);
-      },
-      index == 0 ? 1000 : 150
-    );
-  }, [index]);
 
   const initialPath = `M0 0 L${dimension.width} 0 L${dimension.width} ${
     dimension.height
@@ -44,11 +22,11 @@ export default function Loader() {
   const curve = {
     initial: {
       d: initialPath,
-      transition: { duration: 0.7, ease: [0.76, 0, 0.24, 1] },
+      transition: { duration: 0.2, ease: [0.76, 0, 0.24, 1] }, // Reduced duration to 0.2 seconds
     },
     exit: {
       d: targetPath,
-      transition: { duration: 0.7, ease: [0.76, 0, 0.24, 1], delay: 0.3 },
+      transition: { duration: 0.2, ease: [0.76, 0, 0.24, 1], delay: 0.3 }, // Reduced duration to 0.2 seconds
     },
   };
 
@@ -57,9 +35,7 @@ export default function Loader() {
       variants={slideUp}
       initial="initial"
       exit="exit"
-      className="h-screen w-screen flex items-center justify-center fixed z-[99]
-         bg-black
-        "
+      className="h-screen w-screen flex items-center justify-center fixed z-[99] bg-black"
     >
       {dimension.width > 0 && (
         <>
@@ -73,7 +49,6 @@ export default function Loader() {
             🙏 &nbsp;
             <span className="block w-2.5 h-2.5 bg-[white] mr-2.5 rounded-[50%]"></span>{" "}
             &nbsp;
-            {words[index]}
           </motion.p>
           <svg className="absolute w-full h-[calc(100%_+_300px)] top-0;">
             <motion.path

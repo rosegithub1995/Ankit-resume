@@ -73,3 +73,46 @@ export const scale = {
     open: {scale: 1, transition: {duration: 0.3}},
     closed: {scale: 0, transition: {duration: 0.4}}
 }
+
+
+
+
+
+
+export const perspective = {
+
+    initial: {
+
+        scale: 1,
+
+        y: 0,
+
+    },
+
+    enter: {
+
+        scale: 1,
+
+        y: 0,
+
+    },
+
+    exit: {
+
+        scale: 0.9,
+
+        y: -150,
+
+        opacity: 0.5,
+
+        transition: {
+
+            duration: 1.2,
+
+            ease: [0.76, 0, 0.24, 1]
+
+        }
+
+    }
+
+}
