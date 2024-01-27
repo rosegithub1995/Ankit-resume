@@ -64,7 +64,7 @@ const Header: React.FC = () => {
         <div className={styles.nav}>
           <Magnetic>
             <div className={styles.el}>
-              <Link href="/work">Projects</Link>
+              <Link href="/project">Projects</Link>
               <div className={styles.indicator}></div>
             </div>
           </Magnetic>
