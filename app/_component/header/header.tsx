@@ -17,7 +17,7 @@ const Header: React.FC = () => {
 
   useEffect(() => {
     if (isActive) setIsActive(false);
-  }, [pathname, isActive]);
+  }, [pathname]); // Only depend on pathname
 
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);

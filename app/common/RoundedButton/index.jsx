@@ -1,39 +1,44 @@
-import React from 'react'
-import { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import styles from './style.module.scss';
 import gsap from 'gsap';
 import Magnetic from '../Magnetic';
 
-export default function RoundedButton({children, backgroundColor="#455CE9", ...attributes}) {
+export default function RoundedButton({ children, backgroundColor = "#455CE9", ...attributes }) {
 
-  const circle = useRef(null);
-  let timeline = useRef(null);
-  let timeoutId = null;
-  useEffect( () => {
-    timeline.current = gsap.timeline({paused: true})
-    timeline.current
-      .to(circle.current, {top: "-25%", width: "150%", duration: 0.4, ease: "power3.in"}, "enter")
-      .to(circle.current, {top: "-150%", width: "125%", duration: 0.25}, "exit")
-  }, [])
-  
+  const circleRef = useRef(null);
+  const timelineRef = useRef(null);
+  const timeoutRef = useRef(null);
+
+  useEffect(() => {
+    timelineRef.current = gsap.timeline({ paused: true })
+      .to(circleRef.current, { top: "-25%", width: "150%", duration: 0.4, ease: "power3.in" }, "enter")
+      .to(circleRef.current, { top: "-150%", width: "125%", duration: 0.25 }, "exit");
+
+    return () => {
+      // Clear the timeout when the component unmounts
+      clearTimeout(timeoutRef.current);
+    }
+  }, []);
+
   const manageMouseEnter = () => {
-    if(timeoutId) clearTimeout(timeoutId)
-    timeline.current.tweenFromTo('enter', 'exit');
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    timelineRef.current.tweenFromTo('enter', 'exit');
   }
 
   const manageMouseLeave = () => {
-    timeoutId = setTimeout( () => {
-      timeline.current.play();
+    timeoutRef.current = setTimeout(() => {
+      // Ensure the timeline is paused before playing
+      if (timelineRef.current.paused()) {
+        timelineRef.current.play();
+      }
     }, 300)
   }
 
   return (
     <Magnetic>
-      <div className={styles.roundedButton} style={{overflow: "hidden"}} onMouseEnter={() => {manageMouseEnter()}} onMouseLeave={() => {manageMouseLeave()}} {...attributes}>
-          {
-            children
-          }
-        <div ref={circle} style={{backgroundColor}} className={styles.circle}></div>
+      <div className={styles.roundedButton} style={{ overflow: "hidden" }} onMouseEnter={manageMouseEnter} onMouseLeave={manageMouseLeave} {...attributes}>
+        {children}
+        <div ref={circleRef} style={{ backgroundColor }} className={styles.circle}></div>
       </div>
     </Magnetic>
   )
