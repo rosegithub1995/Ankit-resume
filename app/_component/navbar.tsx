@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-const CursorNavigation: React.FC = () => {
+const Navbar: React.FC = () => {
   useEffect(() => {
     const link = document.querySelectorAll('nav > .hover-this');
     const cursor = document.querySelector('.cursor') as HTMLElement;
@@ -44,7 +44,7 @@ const CursorNavigation: React.FC = () => {
       <style>{`
         .nav-wrapper {
           width: 100%;
-          height: 100vh; /* Change this to 100% if you want full height */
+          height: 20vh; /* Change this to 100% if you want full height */
           background: #6f6c67;
           padding:40px;
           display: flex;
@@ -121,4 +121,4 @@ const CursorNavigation: React.FC = () => {
   );
 };
 
-export default CursorNavigation;
+export default Navbar;

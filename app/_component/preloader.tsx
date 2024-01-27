@@ -6,7 +6,7 @@ import { opacity, slideUp } from '@/app/anim';
 
 const words = ["नमस्कार","Hello", "Bonjour", "Ciao", "Olà", "やあ", "Hallå", "Guten tag", "Hallo"]
 
-export default function Index() {
+export default function Loader() {
     const [index, setIndex] = useState(0);
     const [dimension, setDimension] = useState({width: 0, height:0});
 

@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
-import styles from './style.module.scss';
 import { motion } from 'framer-motion';
 import { usePathname } from 'next/navigation';
-import { menuSlide } from '../animation';
-import Link from './Link';
-import Curve from './Curve';
-import Footer from './Footer';
+import { menuSlide } from '@/app/anim';
+import Link from '@/app/_component/header/nav/Link/Link';
+import Footer from './Footer/footer';
+import Curve from './Curve/curve';
 
 const navItems = [
   {
@@ -37,11 +36,16 @@ export default function index() {
       initial="initial" 
       animate="enter" 
       exit="exit" 
-      className={styles.menu}
+      className="h-screen bg-[rgb(41,41,41)] 
+      fixed text-[white] right-0 top-0"
       >
-       <div className={styles.body}>
-            <div onMouseLeave={() => {setSelectedIndicator(pathname)}} className={styles.nav}>
-                    <div className={styles.header}>
+       <div className="box-border 
+       h-full flex flex-col justify-between p-16 md:p-20">
+            <div onMouseLeave={() => {setSelectedIndicator(pathname)}} 
+            className="flex flex-col text-4xl md:text-6xl gap-3 mt-20">
+                    <div className="text-[rgb(153,153,153)]
+                     uppercase text-sm mb-4 md:mb-8
+                     border-b-[rgb(153,153,153)] border-b border-solid">
                         <p>Navigation</p>
                     </div>
                     {
@@ -55,9 +59,11 @@ export default function index() {
                       })
                     }
             </div>
-            <Footer />
+            
+                <Footer/>
+                <Curve/>
+            
         </div>
-        <Curve />
     </motion.div>
   )
 }

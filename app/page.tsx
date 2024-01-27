@@ -2,9 +2,11 @@
 
 import { useEffect, useState } from 'react'
 import { AnimatePresence } from 'framer-motion';
-import Preloader from '@/app/components/Preloader';
-import HeroText from './text-anim';
-import Navbar from './navbar';
+
+import Navbar from './_component/navbar';
+import Loader from './_component/preloader';
+import Header from './_component/header/header';
+
 
 
 export default function Home() {
@@ -27,12 +29,13 @@ export default function Home() {
   }, [])
 
   return (
-    <main>
+    <main className='bg-[#6f6c67]'>
       <AnimatePresence mode='wait'>
-        {isLoading && <Preloader />}
+        {isLoading && <Loader />}
       </AnimatePresence>
-      <nav className=''></nav>
-      <Navbar/>
+      
+      <Header/>
+      
     </main>
   )
 }
