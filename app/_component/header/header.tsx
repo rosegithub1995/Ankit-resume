@@ -9,7 +9,7 @@ import Rounded from "../../common/RoundedButton";
 import Magnetic from "../../common/Magnetic";
 import Link from "next/link";
 
-const IndexPage: React.FC = () => {
+const Header: React.FC = () => {
   const header = useRef<HTMLDivElement>(null);
   const [isActive, setIsActive] = useState<boolean>(false);
   const pathname = usePathname();
@@ -17,7 +17,7 @@ const IndexPage: React.FC = () => {
 
   useEffect(() => {
     if (isActive) setIsActive(false);
-  }, [pathname]);
+  }, [pathname, isActive]);
 
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -101,4 +101,4 @@ const IndexPage: React.FC = () => {
   );
 };
 
-export default IndexPage;
+export default Header;
