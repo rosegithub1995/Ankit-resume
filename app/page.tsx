@@ -72,8 +72,6 @@ export default function Home() {
     <main className="w-full">
       <AnimatePresence mode="wait">{isLoading && <Loader />}</AnimatePresence>
 
-      <Header />
-
       <Landing />
 
       <Description />
