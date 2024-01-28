@@ -2,6 +2,7 @@
 import { AnimatePresence } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import LoaderAbout from "./loaderabout";
+import Header from "../components/Header";
 
 const About = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -23,7 +24,9 @@ const About = () => {
       <AnimatePresence mode="wait">
         {isLoading && <LoaderAbout />}
       </AnimatePresence>
-      <div className="">About mannn</div>
+      <div className="mt-24 p-2">
+        <div className="mt-">About mannn</div>
+      </div>
     </div>
   );
 };
