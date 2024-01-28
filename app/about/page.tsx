@@ -4,7 +4,6 @@ import React, { useEffect, useState, useTransition } from "react";
 import Image from "next/image";
 import TabButton from "@/app/_component/tabbutton";
 import { AnimatePresence, motion } from "framer-motion";
-import HeroSection from "../_component/herosection";
 import Link from "next/link";
 import Contact from "../components/Contact";
 import RoundedButton from "../common/RoundedButton";
