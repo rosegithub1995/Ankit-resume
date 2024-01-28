@@ -9,7 +9,7 @@ import Projects from "@/app/components/Projects/index";
 import SlidingImages from "@/app/components/SlidingImages/index";
 import Contact from "@/app/components/Contact/index";
 
-import Header from "@/app/components/Header/index";
+import Header from "@/app/_component/header/header";
 import Loader from "./_component/preloader";
 
 export default function Home() {
@@ -79,9 +79,7 @@ export default function Home() {
       <Description />
 
       <Projects />
-      <div className="">
-        <SlidingImages />
-      </div>
+      <SlidingImages />
 
       <Contact />
     </main>

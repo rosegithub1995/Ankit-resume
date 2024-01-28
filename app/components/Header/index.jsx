@@ -48,7 +48,7 @@ export default function Header() {
             <div className={styles.nav}>
                 <Magnetic>
                     <div className={styles.el}>
-                        <Link href="/projects">Projects</Link>
+                        <Link href="/project">Projects</Link>
                         <div className={styles.indicator}></div>
                     </div>
                 </Magnetic>
