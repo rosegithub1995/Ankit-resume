@@ -69,7 +69,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="bg-[#6f6c67]">
+    <main className="">
       <AnimatePresence mode="wait">{isLoading && <Loader />}</AnimatePresence>
 
       <Header />
@@ -79,6 +79,7 @@ export default function Home() {
       <Description />
 
       <Projects />
+      <SlidingImages />
 
       <Contact />
     </main>
