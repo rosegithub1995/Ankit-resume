@@ -6,6 +6,7 @@ import Magnetic from '../Magnetic';
 export default function RoundedButton({ children, backgroundColor = "#455CE9", ...attributes }) {
 
   const circleRef = useRef(null);
+  const textRef = useRef(null);
   const timelineRef = useRef(null);
   const timeoutRef = useRef(null);
 
@@ -23,6 +24,7 @@ export default function RoundedButton({ children, backgroundColor = "#455CE9", .
   const manageMouseEnter = () => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
     timelineRef.current.tweenFromTo('enter', 'exit');
+    gsap.set(textRef.current, { zIndex: 1 }); // Ensure text appears above circle on hover
   }
 
   const manageMouseLeave = () => {
@@ -31,13 +33,17 @@ export default function RoundedButton({ children, backgroundColor = "#455CE9", .
       if (timelineRef.current.paused()) {
         timelineRef.current.play();
       }
+      gsap.set(textRef.current, { zIndex: 'auto' }); // Reset z-index to default
     }, 300)
   }
 
   return (
     <Magnetic>
-      <div className={styles.roundedButton} style={{ overflow: "hidden" }} onMouseEnter={manageMouseEnter} onMouseLeave={manageMouseLeave} {...attributes}>
-        {children}
+      <div className={styles.roundedButton}
+        style={{ overflow: "hidden" }}
+        onMouseEnter={manageMouseEnter}
+        onMouseLeave={manageMouseLeave} {...attributes}>
+        <div ref={textRef} style={{ position: 'relative', zIndex: 'auto' }}>{children}</div>
         <div ref={circleRef} style={{ backgroundColor }} className={styles.circle}></div>
       </div>
     </Magnetic>
