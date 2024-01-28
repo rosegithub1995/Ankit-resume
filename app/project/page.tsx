@@ -3,7 +3,7 @@ import { AnimatePresence } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import LoaderAbout from "../about/loaderabout";
 
-const page = () => {
+const Project = () => {
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     (async () => {
@@ -28,4 +28,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Project;

@@ -18,7 +18,7 @@ export default function Header() {
 
      useEffect(() => {
     if (isActive) setIsActive(false);
-  }, [pathname]); // Only depend on pathname
+  }, [isActive]); // Only depend on pathname
 
 
     useLayoutEffect( () => {
