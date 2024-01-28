@@ -89,23 +89,35 @@ const AboutSection = () => {
 
       <div className="mt-16 p-6 sm:p-12 dark:bg-gray-900 dark:text-gray-100">
         <div className="flex flex-col space-y-4 md:space-y-0 md:space-x-6 md:flex-row">
-          <img
-            src="https://source.unsplash.com/75x75/?portrait"
+          <Image
+            src="/images/background.jpg"
             alt=""
-            className="self-center flex-shrink-0 w-96 h-96 border rounded-full md:justify-self-start dark:bg-gray-500 dark:border-gray-700"
+            height="300"
+            width="300"
+            className="flex-shrink-0 w-96 h-96 border rounded-full md:justify-self-start dark:bg-gray-500 dark:border-gray-700"
           />
           <div className="flex flex-col">
             <h4 className="text-zinc-100 text-2xl md:text-4xl font-semibold text-center md:text-left">
               Ankit Pratap
             </h4>
-            <p className="text-zinc-300 text-lg dark:text-gray-400">
-              I am a full stack web developer with a passion for creating
-              interactive and responsive web applications. I have experience
-              working with JavaScript, React, Redux, Node.js, Express,
-              PostgreSQL, Sequelize, HTML, CSS, and Git. I am a quick learner
-              and I am always looking to expand my knowledge and skill set. I am
-              a team player and I am excited to work with others to create
-              amazing applications.
+            <p className="mt-4 text-zinc-300 text-lg dark:text-gray-400">
+              Sure, here's a refined version of your bio with added experience
+              details: "I am a skilled full-stack web developer dedicated to
+              crafting immersive and user-friendly web experiences. With a
+              strong foundation in JavaScript, I specialize in leveraging modern
+              frameworks such as React and Redux to build dynamic front-end
+              interfaces. On the back end, I am proficient in Node.js and
+              Express, utilizing databases like PostgreSQL with Sequelize for
+              efficient data management. My journey in web development has
+              equipped me with a diverse skill set encompassing HTML, CSS, and
+              Git version control. Continuously expanding my knowledge, I stay
+              updated with the latest industry trends and technologies to
+              deliver cutting-edge solutions. As a quick learner, I thrive in
+              fast-paced environments and adapt swiftly to new challenges.
+              Collaboration is at the core of my approach, and I am passionate
+              about working alongside talented teams to bring innovative ideas
+              to life. Together, we create impactful applications that resonate
+              with users and drive business success."
             </p>
             <div className="flex pt-8 space-x-4">
               {TAB_DATA.map((item) => (
