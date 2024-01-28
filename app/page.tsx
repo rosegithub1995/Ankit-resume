@@ -69,7 +69,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="">
+    <main className="w-full">
       <AnimatePresence mode="wait">{isLoading && <Loader />}</AnimatePresence>
 
       <Header />
@@ -79,7 +79,9 @@ export default function Home() {
       <Description />
 
       <Projects />
-      <SlidingImages />
+      <div className="">
+        <SlidingImages />
+      </div>
 
       <Contact />
     </main>

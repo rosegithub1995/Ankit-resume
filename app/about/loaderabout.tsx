@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { opacity, slideUp } from "@/app/anim";
+import { usePathname, useRouter } from "next/navigation"; // Import from next/router
 
 export default function LoaderAbout() {
-  const [index, setIndex] = useState(0);
   const [dimension, setDimension] = useState({ width: 0, height: 0 });
+  const router = useRouter();
 
   useEffect(() => {
     setDimension({ width: window.innerWidth, height: window.innerHeight });
@@ -22,13 +23,33 @@ export default function LoaderAbout() {
   const curve = {
     initial: {
       d: initialPath,
-      transition: { duration: 0.2, ease: [0.76, 0, 0.24, 1] }, // Reduced duration to 0.2 seconds
+      transition: { duration: 0.2, ease: [0.76, 0, 0.24, 1] },
     },
     exit: {
       d: targetPath,
-      transition: { duration: 0.2, ease: [0.76, 0, 0.24, 1], delay: 0.3 }, // Reduced duration to 0.2 seconds
+      transition: { duration: 0.2, ease: [0.76, 0, 0.24, 1], delay: 0.3 },
     },
   };
+
+  // Get the pathname from the router
+  const pathname = usePathname();
+
+  // Define text based on the pathname
+  let text = "";
+  switch (pathname) {
+    case "/about":
+      text = "About";
+      break;
+    case "/contact":
+      text = "Contact";
+      break;
+    case "/project":
+      text = "Projects ";
+      break;
+    // Add more cases for other paths as needed
+    default:
+      text = "Ankit Pratap";
+  }
 
   return (
     <motion.div
@@ -40,15 +61,12 @@ export default function LoaderAbout() {
       {dimension.width > 0 && (
         <>
           <motion.p
-            className="flex text-[white] text-[42px] items-center absolute z-[1]"
+            className="flex text-[white] text-6xl items-center absolute z-[1]"
             variants={opacity}
             initial="initial"
             animate="enter"
           >
-            {" "}
-            🙏 &nbsp;
-            <span className="block w-2.5 h-2.5 bg-[white] mr-2.5 rounded-[50%]"></span>{" "}
-            &nbsp;
+            {text} {/* Render dynamic text */}
           </motion.p>
           <svg className="absolute w-full h-[calc(100%_+_300px)] top-0;">
             <motion.path
